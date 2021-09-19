@@ -27,7 +27,7 @@ class App extends  Component{
           <Text style={{fontSize:30, textAlign:'center',fontWeight:'bold',color:'red'}}>QR Code example</Text>
           <TextInput
             style={styles.input}
-            placeHolder="Type here"
+            placeHolder="Type here to test"
             
           />
           <Text>QR Code axample</Text>
