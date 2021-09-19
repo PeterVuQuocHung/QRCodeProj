@@ -1,21 +1,50 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import {
+  View,Text,TextInput,StyleSheet
+} from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+// 1. Import 
+import {QRCode, Canvas} from 'easyqrcode-react-native';
 
+
+class App extends  Component{
+    
+    // 3. Generate QRCode
+    generateQRCode = (canvas) => {
+        if (canvas !== null){
+            // QRCode options
+            var options = {
+                text: "Hello world,www.easyproject.cn/donation",
+        	};
+        	// Create QRCode Object
+        	var qrCode = new QRCode(canvas, options);
+        }
+      }
+    
+   render() { 
+      return (
+          <View style={{justifyContent:'center',padding:20}}>
+          <Text style={{fontSize:30, textAlign:'center',fontWeight:'bold',color:'red'}}>QR Code example</Text>
+          <TextInput
+            style={styles.input}
+            placeHolder="Type here"
+            
+          />
+          <Text>QR Code axample</Text>
+            {/* 2. QRCode Canvas  */}
+            <Canvas  ref={this.generateQRCode}/>
+          </View>
+      );
+  }
+};
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
+
 });
+
+export default App;
