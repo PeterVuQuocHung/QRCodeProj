@@ -28,6 +28,7 @@ class App extends  Component{
           <TextInput
             style={styles.input}
             placeholder="Type here to test"
+            placeholderTextColor='yellow'
             
           />
           <Text>QR Code axample</Text>
